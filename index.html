@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ações de Extensão — UFRRJ</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Lista institucional de ações de extensão: datas, descrição, responsável, local, contatos, links e taxa." />
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --accent:#2563eb;
+      --success:#059669;
+      --danger:#ef4444;
+      --glass: rgba(255,255,255,0.7);
+      --radius:12px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,var(--bg),#eef2ff 60%);
+      color:#0f172a;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:28px;
+    }
+
+    header{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      margin-bottom:22px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:14px;
+    }
+    .logo{
+      width:64px;height:64px;border-radius:14px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:22px;box-shadow:0 6px 20px rgba(37,99,235,0.18)
+    }
+    h1{font-size:20px;margin:0}
+    p.lead{margin:0;color:var(--muted)}
+
+    .controls{
+      margin-left:auto;display:flex;gap:10px;align-items:center
+    }
+    .search{background:var(--card);padding:8px 12px;border-radius:999px;border:1px solid #e6edf8;min-width:220px}
+    .btn{background:var(--accent);color:white;padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:600;border:none;cursor:default}
+
+    main{
+      display:grid;grid-template-columns: 1fr 360px;gap:24px;align-items:start;
+    }
+
+    /* list */
+    .list{
+      display:grid;gap:14px;
+    }
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:0 6px 20px rgba(15,23,42,0.06);
+      border:1px solid rgba(15,23,42,0.03);
+      display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;
+    }
+
+    .meta{font-size:13px;color:var(--muted);display:flex;gap:12px;flex-wrap:wrap}
+    .title{font-size:16px;margin:0 0 6px 0}
+    .desc{margin:8px 0 0 0;color:#0b1220;line-height:1.45}
+
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px}
+    .badge.ativa{background:linear-gradient(90deg,#ecfeff,#bbf7d0);color:var(--success)}
+    .badge.encerrada{background:linear-gradient(90deg,#fff1f2,#ffe4e6);color:var(--danger)}
+    .badge.proxima{background:linear-gradient(90deg,#eef2ff,#fde68a);color:#92400e}
+
+    .rightcol{min-width:220px;text-align:right}
+    .dates{font-weight:700}
+    .small{font-size:13px;color:var(--muted)}
+
+    dl.info{display:grid;grid-template-columns:110px 1fr;gap:8px 18px;margin:12px 0 0 0}
+    dt{font-weight:700;color:#0b1220}
+    dd{margin:0;color:var(--muted)}
+
+    .links{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+    .link{font-size:13px;padding:8px;border-radius:8px;background:#f3f6ff;border:1px solid rgba(37,99,235,0.06);text-decoration:none;color:var(--accent)}
+
+    /* sidebar */
+    aside.panel{background:transparent}
+    .panel-card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 6px 20px rgba(15,23,42,0.04);border:1px solid rgba(15,23,42,0.03)}
+    .panel h3{margin:0 0 10px 0}
+    .stat{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px dashed rgba(15,23,42,0.04)}
+    .stat:last-child{border-bottom:none}
+
+    footer{margin-top:22px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* responsivo */
+    @media (max-width:980px){
+      main{grid-template-columns:1fr}
+      .rightcol{text-align:left}
+    }
+
+    @media print{
+      body{background:white;padding:0}
+      .controls,header .logo{display:none}
+      main{grid-template-columns:1fr}
+      .card{box-shadow:none;border:1px solid #ddd}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="banner"><img src="imagens/Logo_UFRRJ_1.webp" alt="Logo UFRRJ"></div>
+      <div>
+        <h1>Ações de Extensão — UFRRJ</h1>
+        <p class="lead">Registro institucional (visual). Inclui ações ativas, futuras e encerradas.</p>
+      </div>
+    </div>
+
+    <div class="container-principal">
+        <div class="container-pesquisa-e-toggle">
+            <input type="text" placeholder="Pesquisar">
+            <input type="checkbox" id="toggle-filtros" class="checkbox-escondido">
+            <label for="toggle-filtros" class="botao-filtros">Filtros</label>
+        </div>
+        <div class="opcoes-filtros">
+            <label><input type="checkbox"> Todas</label>
+            <label><input type="checkbox"> Ativas</label>
+            <label><input type="checkbox"> Encerradas</label>
+            <label><input type="checkbox"> Futuras</label>
+        </div>
+    </div>
+  </header>
+  <hr>
+  <main>
+    <section class="list" aria-live="polite">
+
+      <!-- Card 1: Ação ATIVA -->
+      <article class="card" aria-labelledby="acao1">
+        <div>
+          <h2 class="title" id="acao1">Oficina de Linguagem C para Iniciantes</h2>
+          <div class="meta">
+            <span class="badge ativa">ATIVA</span>
+            <span class="small">Público: Estudantes e comunidade</span>
+            <span class="small">Taxa: Gratuita</span>
+          </div>
+
+          <p class="desc"> Curso básico de inicialização à Linguagem de Programação C, com foco no raciocínio lógico de programação e técnicas fundamentais de código no mercado de trabalho. </p>
+
+          <dl class="info">
+            <dt>Período</dt>
+            <dd><strong class="dates">01/10/2025</strong> — <strong class="dates">15/12/2025</strong></dd>
+
+            <dt>Responsável</dt>
+            <dd>Prof. Rizzo (Departamento de Sistemas de Informação)</dd>
+
+            <dt>Local</dt>
+            <dd>Pavilhão de Aulas Práticas - PAP - Sala 04</dd>
+
+            <dt>Contatos</dt>
+            <dd>Email: <a href="mailto:rizzogames@gmail.com">rizzogames@gmail.com</a><br/>Tel: <a href="tel:+5511999888777">(666) 99988-8777</a></dd>
+
+            <dt>Links</dt>
+            <dd class="links">
+              <a class="link" href="https://acaoextensiva.com.br" target="_blank" rel="noopener">Página da ação</a>
+              <a class="link" href="https://forms.ufrrj.com.br/inscricao" target="_blank" rel="noopener">Formulário de inscrição</a>
+            </dd>
+          </dl>
+        </div>
+
+        <div class="rightcol">
+          <div class="small">Vagas</div>
+          <div style="font-size:20px;font-weight:800;margin-top:6px">40</div>
+          <div class="small" style="margin-top:10px">Inscrições abertas</div>
+        </div>
+      </article>
+
+      <!-- Card 2: Ação FUTURA -->
+      <article class="card" aria-labelledby="acao2">
+        <div>
+          <h2 class="title" id="acao2">Projeto: Montagem de Transformers</h2>
+          <div class="meta">
+            <span class="badge proxima">INSCRIÇÕES EM BREVE</span>
+            <span class="small">Público: Alunos, Professores e Comunidade Externa</span>
+            <span class="small">Taxa: Gratuita</span>
+          </div>
+
+          <p class="desc">Campanha de um Projeto para construção de autobots, desenvolvido com foco em dominação mundial para combater a evolução da IA em 2028.</p>
+
+          <dl class="info">
+            <dt>Período</dt>
+            <dd><strong class="dates">10/02/2026</strong> — <strong class="dates">28/06/2026</strong></dd>
+
+            <dt>Responsável</dt>
+            <dd>Coordenação de Extensão — Prof. Luiz Maltar Castello Branco</dd>
+
+            <dt>Local</dt>
+            <dd>Pavilhão de Aulas Teóricas - PAT - Sala 412</dd>
+
+            <dt>Contatos</dt>
+            <dd>Email: <a href="mailto:bomtarcontraomal@gmail.com">bomtarcontraomal@gmail.com</a></dd>
+
+            <dt>Links</dt>
+            <dd class="links">
+              <a class="link" href="https://InfoSobreTransformers.com.br" target="_blank" rel="noopener">Mais informações</a>
+            </dd>
+          </dl>
+        </div>
+
+        <div class="rightcol">
+          <div class="small">Status</div>
+          <div style="font-size:20px;font-weight:800;margin-top:6px">Futuro</div>
+          <div class="small" style="margin-top:10px">Sem taxa</div>
+        </div>
+      </article>
+
+      <!-- Card 3: Ação ENCERRADA (deve permanecer registrada) -->
+      <article class="card" aria-labelledby="acao3">
+        <div>
+          <h2 class="title" id="acao3">Concurso de Sites para a UFRRJ Interdisciplinar — Edição 2024</h2>
+          <div class="meta">
+            <span class="badge encerrada">ENCERRADA</span>
+            <span class="small">Público: Aberto ao público</span>
+            <span class="small">Taxa: R$ 10 (ed. 2024)</span>
+          </div>
+
+          <p class="desc">Evento interdisciplinar que reuniu estudantes de S.I. para concorrer a um prêmio de R$:500,00 vendo quem constrói o melhor Site para a UFRRJ já que ela tava precisando e não queria pagar Programadores Front-End profissionais. Registro histórico mantido para prestação de contas e divulgação de resultados.</p>
+
+          <dl class="info">
+            <dt>Período</dt>
+            <dd><strong class="dates">12/10/2024</strong> — <strong class="dates">14/10/2024</strong></dd>
+
+            <dt>Responsável</dt>
+            <dd>Comissão Organizadora — Prof. Tiago C. Francês</dd>
+
+            <dt>Local</dt>
+            <dd>Prédio Central - P1 - Auditório</dd>
+
+            <dt>Contatos</dt>
+            <dd>Email arquivado: <a href="mailto:tcruz.franca@gmail.com">tcruz.franca@gmail.com</a></dd>
+
+            <dt>Links</dt>
+            <dd class="links">
+              <a class="link" href="https://relatoriosufrrj.com/ed2024/onossoganhou" target="_blank" rel="noopener">Relatório da edição 2024</a>
+            </dd>
+          </dl>
+        </div>
+
+        <div class="rightcol">
+          <div class="small">Situação</div>
+          <div style="font-size:20px;font-weight:800;margin-top:6px;color:var(--muted)">Encerrada</div>
+          <div class="small" style="margin-top:10px">Registro mantido</div>
+        </div>
+      </article>
+
+    </section>
+
+    <aside class="panel">
+      <div class="panel-card">
+        <h3>Resumo rápido</h3>
+        <div class="stat">
+          <div>
+            <div style="font-weight:800;font-size:20px">24</div>
+            <div class="small">Ações registradas</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-weight:800;font-size:20px;color:var(--success)">8</div>
+            <div class="small">Ativas</div>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div>
+            <div style="font-weight:800;font-size:20px;color:rgba(218, 193, 0, 0.912)">6</div>
+            <div class="small">Futuras</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-weight:800;font-size:20px;color:#92400e">10</div>
+            <div class="small">Encerradas</div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px;color:var(--muted);font-size:13px">Observação: Material visual feito para aplicação de Ações de Extensão da UFRRJ como um Projeto de WEB0. As Ações nesta página são apenas exemplos, não considere-as reais.</div>
+      </div>
+
+      <div style="height:14px"></div>
+
+      <div class="panel-card">
+        <h3>Ações de Extensão</h3>
+        <div style="margin-top:12px;color:var(--muted);font-size:13px">
+        As atividades de extensão e cultura se constituem num importante e eficaz instrumento institucional que promove a troca de saberes e a integração com a sociedade. Além disso, ao mesmo tempo em que beneficia a população, contribuindo para a melhoria da qualidade de vida, inclusão sócio-produtiva e defesa do meio ambiente, as ações extensionistas e culturais – que incluem atividades técnicas, científicas, culturais e artísticas – propiciam ao estudante a oportunidade para um aprendizado teórico-prático contextualizado, desenvolvimento cultural, responsabilidade social e formação da cidadania.
+        <br><br>
+        Existem cinco modalidades de ação extensionista:
+        </div>
+        <ul style="margin:8px 0 0 18px;color:var(--muted)">
+          <li>Programas</li>
+          <li>Projetos</li>
+          <li>Cursos</li>
+          <li>Eventos</li>
+          <li>Serviços</li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    Trabalho de WEB-0 feito por Thales Sacramento de Freitas, Andrey Oliveira Rangel Branco, Cauã Medeiros.
+  </footer>
+</body>
+</html>

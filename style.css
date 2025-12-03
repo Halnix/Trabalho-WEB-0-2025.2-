@@ -1,0 +1,58 @@
+.banner img {
+    width: 100%;
+    height: 100px;
+    background-size: contain;
+}
+
+.container-principal {
+  display: flex; /* Habilita o Flexbox */
+  flex-direction: column; /* Organiza os itens (os dois containers internos) em coluna */
+  gap: 10px; /* Adiciona um espaço entre o bloco de pesquisa e o bloco de checkboxes */
+}
+
+.container-pesquisa-e-toggle {
+  /* Mantém a pesquisa e o botão lado a lado */
+  display: flex;
+  align-items: center; /* Alinha verticalmente */
+}
+
+.checkbox-escondido {
+    display: none;
+}
+
+/* Estilos de exemplo para corresponder ao visual da imagem (opcional) */
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.botao-filtros {
+    padding: 10px 20px;
+    background-color: #3b82f6;
+    color: white;
+    border-radius: 4px;
+    margin-left: 5px;
+    cursor: pointer; /* Indica que é clicável */
+    user-select: none; /* Evita que o texto seja selecionado */
+}
+
+/* Esconde o Container de Filtros por padrão */
+.opcoes-filtros {
+    display: flex;
+    gap: 15px;
+}
+
+#toggle-filtros:checked ~ .opcoes-filtros {
+    display: flex; /* MOSTRA os filtros */
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* empurra a barra de pesquisa para a direita */
+    align-items: center;
+}
+
+input[type="text"] {
+    width: 80%;
+}
